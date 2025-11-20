@@ -1,5 +1,12 @@
 # @repo/ui
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`a32fb39`](https://github.com/hoisel/changesets-lab/commit/a32fb39753d1af989e22bdbb5a5720af94189c5b)]:
+  - @repo/shared@4.0.0
+
 ## 3.2.0
 
 ### Minor Changes
