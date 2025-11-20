@@ -1,5 +1,15 @@
 # docs
 
+## 6.0.0
+
+### Major Changes
+
+- [`cf9922e`](https://github.com/hoisel/changesets-lab/commit/cf9922eb95a6f21b440cc612c1d36ee797d9ea5f) [#37](https://github.com/hoisel/changesets-lab/pull/37) - Major docs pr-21
+
+### Minor Changes
+
+- [`7866eaf`](https://github.com/hoisel/changesets-lab/commit/7866eaf3028ebddaadc02fd709dde4a89b1a200b) [#39](https://github.com/hoisel/changesets-lab/pull/39) - Minor docs pr-22
+
 ## 5.0.0
 
 ### Major Changes
