@@ -3,5 +3,14 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#e2c9a0",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#d6b379",
+    "statusBarItem.remoteBackground": "#e2c9a0",
+    "statusBarItem.remoteForeground": "#15202b",
+    "tab.activeBorder": "#eedfc7"
+  },
+  "peacock.color": "#e2c9a0"
 }

@@ -1,7 +1,6 @@
 name: Release
 
 on:
-  pull_request:
   push:
     branches:
       - main
@@ -12,6 +11,9 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
