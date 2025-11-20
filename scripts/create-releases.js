@@ -1,15 +1,13 @@
 const { execSync } = require('child_process');
 
 
-// Função para verificar se pacote deve gerar release
 function shouldCreateRelease(tag) {
-    // Apps não geram releases
-    if (tag.startsWith('@apps/')) {
+    // Exemplo: ignorar apps docs/web, criar release para o resto
+    if (tag.startsWith('docs@') || tag.startsWith('web@')) {
         return true;
     }
     return false;
 }
-
 // Pegar tags criadas no último commit
 const tags = execSync('git tag --points-at HEAD', { encoding: 'utf-8' })
     .trim()
