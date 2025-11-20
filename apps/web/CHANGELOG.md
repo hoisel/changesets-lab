@@ -1,5 +1,17 @@
 # web
 
+## 5.0.0
+
+### Major Changes
+
+- [`9f69225`](https://github.com/hoisel/changesets-lab/commit/9f692254b34eaf92a7fc5b0ec16b82ac483f25c4) [#35](https://github.com/hoisel/changesets-lab/pull/35) - Major web pr-19
+
+### Patch Changes
+
+- [`7f70652`](https://github.com/hoisel/changesets-lab/commit/7f7065229ebd9829b6f510774d1d9be84a28fb11) [#33](https://github.com/hoisel/changesets-lab/pull/33) - Patch web pr-18
+
+- [`ad112f3`](https://github.com/hoisel/changesets-lab/commit/ad112f3d0b477406c59044fea89fae7f00116f83) [#35](https://github.com/hoisel/changesets-lab/pull/35) - Patch web pr-19
+
 ## 4.0.0
 
 ### Major Changes
