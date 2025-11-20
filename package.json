@@ -11,8 +11,7 @@
     "changeset:add": "changeset add",
     "changeset:status": "changeset status",
     "changeset:version": "changeset version",
-    "changeset:tag": "changeset tag",
-    "release": "changeset tag && node scripts/create-releases.js"
+    "changeset:tag": "changeset tag"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",

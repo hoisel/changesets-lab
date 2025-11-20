@@ -14,6 +14,11 @@ const tags = execSync('git tag --points-at HEAD', { encoding: 'utf-8' })
     .split('\n')
     .filter(Boolean);
 
+if (tags.length === 0) {
+    console.log('Nenhuma tag encontrada no HEAD, saindo sem criar releases.');
+    process.exit(0);
+}
+
 console.log('Tags encontradas:', tags);
 
 for (const tag of tags) {

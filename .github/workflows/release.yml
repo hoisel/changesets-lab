@@ -42,9 +42,12 @@ jobs:
         uses: changesets/action@v1
         with:
           createGithubReleases: false  # Desabilita criação automática
-          publish: pnpm release  # Roda publish + script de releases
+          publish: pnpm changeset:tag  # Roda changeset tag via pnpm script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push tags
-        run: git push --tags 
+        run: git push --tags
+
+      - name: Create GitHub Releases from tags
+        run: node scripts/create-releases.js
