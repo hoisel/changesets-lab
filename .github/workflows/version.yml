@@ -1,4 +1,4 @@
-name: Release
+name: Versioning Packages
 
 on:
   push:
@@ -10,7 +10,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
-    name: Release
+    name: Versioning
     if: github.ref_type == 'branch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
