@@ -1,5 +1,11 @@
 # web
 
+## 3.0.0
+
+### Major Changes
+
+- be945c2: Najor change in Web
+
 ## 0.1.5
 
 ### Patch Changes
