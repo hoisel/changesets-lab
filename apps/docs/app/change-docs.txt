@@ -4,8 +4,9 @@ changes pr-7
 changes pr-8
 changes pr-13
 changes pr-16
-pacth pr-16
+patch pr-16
 patch pr-17
 minor pr-18
 major pr-20
 major pr-21
+minor pr-22
