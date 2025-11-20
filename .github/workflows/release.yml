@@ -28,13 +28,18 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           cache: 'pnpm'
 
-
+      - name: Setup GitHub CLI
+        uses: sersoft-gmbh/setup-gh-cli-action@v2
+        with:
+          version: stable
+          
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Create Release Pull Request
+      - name: Create Release Pull Request Or Tag and Release
         uses: changesets/action@v1
         with:
-          publish: pnpm changeset:tag  # Script customizado
+          createGithubReleases: false  # Desabilita criação automática
+          publish: pnpm release  # Roda publish + script de releases
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
