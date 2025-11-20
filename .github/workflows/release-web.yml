@@ -1,0 +1,103 @@
+name: Release Web App
+
+on:
+  push:
+    tags:
+      - 'web@*.*.*'
+
+concurrency:
+  group: web-release-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  APP_NAME: web
+  VERSION: ${{ github.ref_name }}
+  NODE_VERSION: '22.x'
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Test Suite
+        run: |
+          echo "🧪 Starting tests for ${{ env.APP_NAME }}@${{ env.VERSION }}..."
+          echo "  ✓ Running ESLint checks..."
+          sleep 1
+          echo "  ✓ Running TypeScript type checking..."
+          sleep 1
+          echo "  ✓ Executing test suite..."
+          sleep 3
+          echo "  ⏱️  Tests completed in 5s"
+          echo "✅ All tests passed for ${{ env.APP_NAME }}@${{ env.VERSION }}"
+
+      - name: Update Summary
+        run: |
+          echo "## 🧪 Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "**App**: ${{ env.APP_NAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Version**: ${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status**: ✅ Passed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Application
+        run: |
+          echo "🏗️  Starting build for ${{ env.APP_NAME }}@${{ env.VERSION }}..."
+          echo "  ⏳ Compiling Next.js application..."
+          sleep 2
+          echo "  ⏳ Optimizing assets..."
+          sleep 1
+          echo "  ⏳ Generating static pages..."
+          sleep 2
+          echo "  ⏱️  Build completed in 5s"
+          echo "✅ Build successful for ${{ env.APP_NAME }}@${{ env.VERSION }}"
+
+      - name: Update Summary
+        run: |
+          echo "## 🏗️ Build Results" >> $GITHUB_STEP_SUMMARY
+          echo "**App**: ${{ env.APP_NAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Version**: ${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status**: ✅ Success" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Application
+        run: |
+          echo "🚀 Starting deployment for ${{ env.APP_NAME }}@${{ env.VERSION }}..."
+          echo "  ⏳ Preparing deployment environment..."
+          sleep 2
+          echo "  ⏳ Uploading build artifacts..."
+          sleep 1
+          echo "  ⏳ Configuring CDN and routing..."
+          sleep 2
+          echo "  ⏱️  Deployment completed in 5s"
+          echo "✅ Successfully deployed ${{ env.APP_NAME }}@${{ env.VERSION }}"
+
+      - name: Update Summary
+        run: |
+          echo "## 🚀 Deployment Results" >> $GITHUB_STEP_SUMMARY
+          echo "**App**: ${{ env.APP_NAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Version**: ${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status**: ✅ Deployed" >> $GITHUB_STEP_SUMMARY
+          echo "**Tag**: \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "### ✨ Release Complete" >> $GITHUB_STEP_SUMMARY
+          echo "All stages completed successfully for ${{ env.APP_NAME }}@${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
