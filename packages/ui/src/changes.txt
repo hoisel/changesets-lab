@@ -1,4 +1,2 @@
 - change 1
 - change 2
-- change 3 - PR 2
-- change 4 - PR 2
