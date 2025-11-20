@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "changesets-lab",
   "private": true,
   "scripts": {
     "build": "turbo run build",
