@@ -19,9 +19,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
+          cache: pnpm
 
       - name: Install Dependencies
-        run: yarn
+        run: |
+          corepack enable
+          pnpm install
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
