@@ -1,5 +1,11 @@
 # @repo/ui
 
+## 3.2.0
+
+### Minor Changes
+
+- 23ebc7f: Minor to UI
+
 ## 3.1.0
 
 ### Minor Changes
