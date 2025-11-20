@@ -1,5 +1,12 @@
 # web
 
+## 3.1.0
+
+### Patch Changes
+
+- Updated dependencies [f0a55b9]
+  - @repo/ui@3.1.0
+
 ## 3.0.0
 
 ### Major Changes
