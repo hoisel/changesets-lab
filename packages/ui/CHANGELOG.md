@@ -1,5 +1,11 @@
 # @repo/ui
 
+## 3.1.0
+
+### Minor Changes
+
+- f0a55b9: Minor Core/ui change
+
 ## 1.0.0
 
 ### Major Changes
