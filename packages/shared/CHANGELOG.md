@@ -1,5 +1,11 @@
 # @repo/ui
 
+## 4.0.0
+
+### Patch Changes
+
+- [`a32fb39`](https://github.com/hoisel/changesets-lab/commit/a32fb39753d1af989e22bdbb5a5720af94189c5b) [#26](https://github.com/hoisel/changesets-lab/pull/26) - Change Shared pr-13
+
 ## 1.0.0
 
 ### Major Changes
