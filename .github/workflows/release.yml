@@ -34,5 +34,7 @@ jobs:
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
+        with:
+          publish: pnpm changeset:tag  # Script customizado
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
