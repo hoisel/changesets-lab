@@ -1,5 +1,11 @@
 # web
 
+## 6.1.2
+
+### Patch Changes
+
+- [`3f249a5`](https://github.com/hoisel/changesets-lab/commit/3f249a50ac085044eec39ca37c9f76e78a3d2890) [#44](https://github.com/hoisel/changesets-lab/pull/44) - Patch Web pr-25
+
 ## 6.1.1
 
 ### Patch Changes
