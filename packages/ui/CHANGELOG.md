@@ -1,5 +1,11 @@
 # @repo/ui
 
+## 0.3.0
+
+### Minor Changes
+
+- 88b793f: Changes 4 - pr-4
+
 ## 0.2.0
 
 ### Minor Changes
