@@ -44,11 +44,13 @@ jobs:
           createGithubReleases: false  # Desabilita criação automática
           publish: pnpm changeset:tag  # Roda changeset tag via pnpm script
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Push tags
         run: git push --tags
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          
       - name: Create GitHub Releases from tags
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
