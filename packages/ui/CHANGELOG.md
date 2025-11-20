@@ -1,5 +1,11 @@
 # @repo/ui
 
+## 1.0.0
+
+### Major Changes
+
+- c0c076d: breakijng changes pr-9
+
 ## 0.3.1
 
 ### Patch Changes
