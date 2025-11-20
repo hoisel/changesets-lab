@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -48,8 +50,6 @@ jobs:
 
       - name: Push tags
         run: git push --tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           
       - name: Create GitHub Releases from tags
         env:
