@@ -1,5 +1,11 @@
 # @repo/ui
 
+## 0.2.0
+
+### Minor Changes
+
+- edf4e22: Changes 3 - pr-3
+
 ## 0.1.0
 
 ### Minor Changes
