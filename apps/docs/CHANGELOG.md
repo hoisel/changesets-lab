@@ -1,5 +1,18 @@
 # docs
 
+## 2.0.0
+
+### Major Changes
+
+- 7fcc2e2: change pr-8
+
+### Patch Changes
+
+- d11a51d: Update docs text
+- 4ef2479: Changes pr-7
+- Updated dependencies [92366ec]
+  - @repo/ui@0.3.1
+
 ## 1.0.1
 
 ### Patch Changes
