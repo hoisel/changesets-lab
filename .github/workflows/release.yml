@@ -15,6 +15,11 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@0609f0983b7a228f052f81ef4c3d6510cae254ad
+        with:
+          version: 9
+
       - name: Setup Node.js 20
         uses: actions/setup-node@v3
         with:
@@ -22,9 +27,7 @@ jobs:
           cache: pnpm
 
       - name: Install Dependencies
-        run: |
-          corepack enable
-          pnpm install
+        run: pnpm install
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
