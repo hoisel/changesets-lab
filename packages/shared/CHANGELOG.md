@@ -1,5 +1,11 @@
 # @repo/ui
 
+## 6.6.0
+
+### Minor Changes
+
+- [`64a2071`](https://github.com/hoisel/changesets-lab/commit/64a2071d45fae3c00b01cdef04950b0e8ed4a3a2) [#54](https://github.com/hoisel/changesets-lab/pull/54) - Minor pr-30 shared
+
 ## 6.3.0
 
 ### Minor Changes
