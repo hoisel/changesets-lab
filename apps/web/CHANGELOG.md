@@ -1,5 +1,14 @@
 # web
 
+## 6.6.0
+
+### Patch Changes
+
+- [`8cd3fa5`](https://github.com/hoisel/changesets-lab/commit/8cd3fa566477b365f667f117ca5dac52f95f79a8) [#54](https://github.com/hoisel/changesets-lab/pull/54) - Update description of tests
+
+- Updated dependencies []:
+  - @repo/ui@6.6.0
+
 ## 6.5.0
 
 ### Patch Changes
