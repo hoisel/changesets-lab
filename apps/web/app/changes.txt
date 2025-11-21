@@ -10,3 +10,6 @@ minor pr-23
 Patch pr-24
 patch pr-25
 major pr-26
+minor pr-27
+patch pr-28
+patch pr-29
