@@ -1,5 +1,16 @@
 # @repo/ui
 
+## 6.3.0
+
+### Minor Changes
+
+- [`ac20eb7`](https://github.com/hoisel/changesets-lab/commit/ac20eb7f113a5f16d719eeb6d7c8c277f2afcb8a) [#48](https://github.com/hoisel/changesets-lab/pull/48) - Change text Shared pr-27
+
+  ```diff
+  - change pr-26
+  + change pr-27
+  ```
+
 ## 4.0.0
 
 ### Patch Changes
