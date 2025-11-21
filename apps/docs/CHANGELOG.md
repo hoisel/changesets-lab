@@ -1,5 +1,11 @@
 # docs
 
+## 6.9.0
+
+### Minor Changes
+
+- [`88c9a53`](https://github.com/hoisel/changesets-lab/commit/88c9a5343f2fad873a5a012fa4bd05fc5e5dd1d7) [#62](https://github.com/hoisel/changesets-lab/pull/62) - Update ts to 6.0
+
 ## 6.8.0
 
 ### Patch Changes
