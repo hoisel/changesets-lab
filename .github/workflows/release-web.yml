@@ -36,7 +36,7 @@ jobs:
 
       - name: Update Summary
         run: |
-          echo "## 🧪 Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "### 🧪 Test Results" >> $GITHUB_STEP_SUMMARY
           echo "**App**: ${{ env.APP_NAME }}" >> $GITHUB_STEP_SUMMARY
           echo "**Version**: ${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
           echo "**Status**: ✅ Passed" >> $GITHUB_STEP_SUMMARY
@@ -64,7 +64,7 @@ jobs:
 
       - name: Update Summary
         run: |
-          echo "## 🏗️ Build Results" >> $GITHUB_STEP_SUMMARY
+          echo "### 🏗️ Build Results" >> $GITHUB_STEP_SUMMARY
           echo "**App**: ${{ env.APP_NAME }}" >> $GITHUB_STEP_SUMMARY
           echo "**Version**: ${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
           echo "**Status**: ✅ Success" >> $GITHUB_STEP_SUMMARY
@@ -92,7 +92,7 @@ jobs:
 
       - name: Update Summary
         run: |
-          echo "## 🚀 Deployment Results" >> $GITHUB_STEP_SUMMARY
+          echo "### 🚀 Deployment Results" >> $GITHUB_STEP_SUMMARY
           echo "**App**: ${{ env.APP_NAME }}" >> $GITHUB_STEP_SUMMARY
           echo "**Version**: ${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
           echo "**Status**: ✅ Deployed" >> $GITHUB_STEP_SUMMARY

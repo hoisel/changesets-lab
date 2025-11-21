@@ -58,7 +58,7 @@ jobs:
 
       - name: Dependencies Summary
         run: |
-          echo "## 🔧 Dependencies Installation" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔧 Dependencies Installation" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Status**: ✅ Success" >> $GITHUB_STEP_SUMMARY
           echo "**Packages**: ${{ steps.install.outputs.package_count }}" >> $GITHUB_STEP_SUMMARY
@@ -77,7 +77,7 @@ jobs:
 
       - name: Changesets Summary
         run: |
-          echo "## 🏷️ Changesets Processing" >> $GITHUB_STEP_SUMMARY
+          echo "### 🏷️ Changesets Processing" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           # Detectar se foi criado PR ou tags
@@ -149,7 +149,7 @@ jobs:
       - name: Push Tags Summary
         if: steps.changesets.outputs.published == 'true'
         run: |
-          echo "## 📤 Tags Pushed" >> $GITHUB_STEP_SUMMARY
+          echo "### 📤 Tags Pushed" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           TAGS="${{ steps.push-tags.outputs.tags }}"
@@ -175,7 +175,7 @@ jobs:
         if: always()
         run: |
           echo "---" >> $GITHUB_STEP_SUMMARY
-          echo "## 📋 Workflow Summary" >> $GITHUB_STEP_SUMMARY
+          echo "### 📋 Workflow Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Triggered by**: @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
           echo "**Commit**: [\`${GITHUB_SHA:0:7}\`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})" >> $GITHUB_STEP_SUMMARY
