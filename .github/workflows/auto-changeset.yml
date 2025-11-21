@@ -1,0 +1,120 @@
+name: Auto Generate Changeset
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+
+# Prevent workflow from running on its own commits
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  auto-changeset:
+    name: Auto Generate Changeset
+    # Only run on PRs targeting main, skip if triggered by workflow bot
+    if: github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+    
+    steps:
+      - name: Checkout PR Branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Check for Existing Changesets
+        id: check-changesets
+        run: |
+          # Count changeset files (excluding README.md)
+          CHANGESET_COUNT=$(find .changeset -name "*.md" ! -name "README.md" | wc -l)
+          
+          echo "Found $CHANGESET_COUNT changeset(s)"
+          
+          if [ "$CHANGESET_COUNT" -gt 0 ]; then
+            echo "has_changesets=true" >> $GITHUB_OUTPUT
+            echo "### ✅ Changesets Already Exist" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "This PR already has $CHANGESET_COUNT changeset(s). Skipping auto-generation." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "has_changesets=false" >> $GITHUB_OUTPUT
+            echo "### 🔍 No Changesets Found" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Will attempt to auto-generate changeset based on affected packages." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Generate Changeset
+        id: generate
+        if: steps.check-changesets.outputs.has_changesets == 'false'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_REF: ${{ github.event.pull_request.base.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          echo "🔧 Generating changeset for PR: $PR_TITLE"
+          
+          # Run the generation script - PR_TITLE passed via env var (safe)
+          node scripts/generate-auto-changeset.mjs "$PR_TITLE"
+          
+          # Check if changeset was created
+          NEW_CHANGESET_COUNT=$(find .changeset -name "*.md" ! -name "README.md" | wc -l)
+          
+          if [ "$NEW_CHANGESET_COUNT" -gt 0 ]; then
+            echo "created=true" >> $GITHUB_OUTPUT
+            
+            # Get the created changeset file
+            CHANGESET_FILE=$(find .changeset -name "*.md" ! -name "README.md" -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -d' ' -f2-)
+            echo "changeset_file=$CHANGESET_FILE" >> $GITHUB_OUTPUT
+            
+            echo "### 🎉 Changeset Generated" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**File**: \`$(basename $CHANGESET_FILE)\`" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`markdown" >> $GITHUB_STEP_SUMMARY
+            cat "$CHANGESET_FILE" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "created=false" >> $GITHUB_OUTPUT
+            echo "### ℹ️ No Changeset Created" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "No affected packages found or all affected packages are config-only." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Commit Changeset
+        if: steps.check-changesets.outputs.has_changesets == 'false' && steps.generate.outputs.created == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add .changeset/*.md
+          git commit -m "chore: auto-generate changeset [skip ci]"
+          git push
+
+      - name: Workflow Summary
+        if: always()
+        run: |
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "### 📋 Workflow Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**PR**: #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch**: \`${{ github.event.pull_request.head.ref }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by**: @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
