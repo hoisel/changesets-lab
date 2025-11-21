@@ -1,5 +1,16 @@
 # docs
 
+## 6.3.0
+
+### Minor Changes
+
+- [`b01c747`](https://github.com/hoisel/changesets-lab/commit/b01c747c317baf14630ef4cd5d95b30c5b85a517) [#48](https://github.com/hoisel/changesets-lab/pull/48) - Minor changes docs pr-27
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @repo/ui@6.3.0
+
 ## 6.0.0
 
 ### Major Changes

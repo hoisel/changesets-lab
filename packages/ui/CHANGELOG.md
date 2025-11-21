@@ -1,5 +1,12 @@
 # @repo/ui
 
+## 6.3.0
+
+### Patch Changes
+
+- Updated dependencies [[`ac20eb7`](https://github.com/hoisel/changesets-lab/commit/ac20eb7f113a5f16d719eeb6d7c8c277f2afcb8a)]:
+  - @repo/shared@6.3.0
+
 ## 4.0.0
 
 ### Patch Changes
