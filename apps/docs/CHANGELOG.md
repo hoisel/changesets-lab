@@ -1,5 +1,12 @@
 # docs
 
+## 6.8.0
+
+### Patch Changes
+
+- Updated dependencies [[`c661492`](https://github.com/hoisel/changesets-lab/commit/c661492402a03bf9d7257a30c35cd78763c0a3af)]:
+  - @repo/ui@6.8.0
+
 ## 6.7.0
 
 ### Patch Changes
