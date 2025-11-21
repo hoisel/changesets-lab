@@ -1,5 +1,11 @@
 # web
 
+## 6.2.0
+
+### Minor Changes
+
+- [`15b318b`](https://github.com/hoisel/changesets-lab/commit/15b318b593fc25bcec66ec2f148a15262299329e) [#46](https://github.com/hoisel/changesets-lab/pull/46) - Minor Web pr-26
+
 ## 6.1.2
 
 ### Patch Changes
