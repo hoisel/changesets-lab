@@ -1,5 +1,11 @@
 # docs
 
+## 6.4.0
+
+### Minor Changes
+
+- [`4594d23`](https://github.com/hoisel/changesets-lab/commit/4594d234e2c3fd63d500e16395a252854123b823) [#50](https://github.com/hoisel/changesets-lab/pull/50) - Minor docs pr-28
+
 ## 6.3.0
 
 ### Minor Changes
