@@ -1,5 +1,12 @@
 # web
 
+## 6.7.0
+
+### Patch Changes
+
+- Updated dependencies [[`49f1228`](https://github.com/hoisel/changesets-lab/commit/49f12286c7930ed730c573a68ee147bc01e96604)]:
+  - @repo/ui@6.7.0
+
 ## 6.6.0
 
 ### Patch Changes

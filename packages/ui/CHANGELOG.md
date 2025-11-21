@@ -1,5 +1,16 @@
 # @repo/ui
 
+## 6.7.0
+
+### Minor Changes
+
+- [`49f1228`](https://github.com/hoisel/changesets-lab/commit/49f12286c7930ed730c573a68ee147bc01e96604) [#56](https://github.com/hoisel/changesets-lab/pull/56) - Changes in ui pr-31
+
+  ```diff
+  + change pr-31
+  - change pr-13
+  ```
+
 ## 6.6.0
 
 ### Patch Changes
