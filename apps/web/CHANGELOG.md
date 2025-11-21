@@ -1,5 +1,13 @@
 # web
 
+## 6.9.0
+
+### Minor Changes
+
+- [`88c9a53`](https://github.com/hoisel/changesets-lab/commit/88c9a5343f2fad873a5a012fa4bd05fc5e5dd1d7) [#62](https://github.com/hoisel/changesets-lab/pull/62) - Update ts to 6.0
+
+- [`9f60db7`](https://github.com/hoisel/changesets-lab/commit/9f60db742bc90ad773a39ef03e6766f25010f7d6) [#61](https://github.com/hoisel/changesets-lab/pull/61) - Descricao da PR
+
 ## 6.8.0
 
 ### Patch Changes
